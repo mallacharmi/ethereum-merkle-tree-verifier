@@ -32,7 +32,7 @@ This project implements:
 ## Project Structure
 
 ```
-merkle-ethereum/
+ethereum-merkle-tree-verifier/
 ├── part1_tree.py       # MerkleTree class, proof generation & verification
 ├── part2_fetch.py      # Ethereum JSON-RPC block/tx fetching
 ├── part3_verify.py     # Root reconstruction, inclusion proofs, light client simulation
@@ -96,6 +96,7 @@ python part1_tree.py
 ```
 
 Expected output:
+
 ```
 Part 1 — Merkle Tree Tests
 Root (4 leaves): <hash>
@@ -183,6 +184,7 @@ You need a free Ethereum RPC endpoint. No wallet or funds required.
 - `verify_proof(leaf_data, proof, expected_root)` — Standalone verifier (no tree access needed)
 
 **Test cases:**
+
 - Valid proof passes
 - Tampered leaf data fails
 - Tampered proof hash fails
@@ -207,12 +209,12 @@ You need a free Ethereum RPC endpoint. No wallet or funds required.
 
 ## Extension Challenges
 
-| Extension | Status | How to use |
-|-----------|--------|------------|
-| A — RLP + Keccak-256 | ✅ Implemented | Call `verify_transactions_root(block, method="rlp")` |
-| B — Odd leaf handling | ✅ Implemented | Automatically handled in `MerkleTree._build()` |
-| C — Light client simulation | ✅ Implemented | `light_client_verify()` in `part3_verify.py` |
-| D — Historical block | ✅ Supported | Pass any block number to `fetch_block(rpc_url, 12345678)` |
+| Extension                   | Status         | How to use                                                |
+| --------------------------- | -------------- | --------------------------------------------------------- |
+| A — RLP + Keccak-256        | ✅ Implemented | Call `verify_transactions_root(block, method="rlp")`      |
+| B — Odd leaf handling       | ✅ Implemented | Automatically handled in `MerkleTree._build()`            |
+| C — Light client simulation | ✅ Implemented | `light_client_verify()` in `part3_verify.py`              |
+| D — Historical block        | ✅ Supported   | Pass any block number to `fetch_block(rpc_url, 12345678)` |
 
 ### Extension A — RLP encoding
 
@@ -238,16 +240,16 @@ prove_transaction_inclusion(block, tx_index=0, method="simple")
 
 ## Key Concepts
 
-| Concept | Description |
-|---------|-------------|
-| SHA-256 | Hash function used in our simplified tree |
-| Keccak-256 | Hash function Ethereum actually uses (Extension A) |
-| Leaf node | Hash of a transaction |
-| Internal node | Hash of two children concatenated |
-| Merkle root | Single fingerprint of the entire transaction set |
-| Merkle proof | Sibling hashes from leaf to root (~20 for a million-tx block) |
-| RLP encoding | Recursive Length Prefix — Ethereum's serialization format |
-| transactionsRoot | The Merkle root stored in every Ethereum block header |
+| Concept          | Description                                                   |
+| ---------------- | ------------------------------------------------------------- |
+| SHA-256          | Hash function used in our simplified tree                     |
+| Keccak-256       | Hash function Ethereum actually uses (Extension A)            |
+| Leaf node        | Hash of a transaction                                         |
+| Internal node    | Hash of two children concatenated                             |
+| Merkle root      | Single fingerprint of the entire transaction set              |
+| Merkle proof     | Sibling hashes from leaf to root (~20 for a million-tx block) |
+| RLP encoding     | Recursive Length Prefix — Ethereum's serialization format     |
+| transactionsRoot | The Merkle root stored in every Ethereum block header         |
 
 ---
 
@@ -264,3 +266,30 @@ prove_transaction_inclusion(block, tx_index=0, method="simple")
 - No private keys, wallets, or signing involved
 - All operations are read-only (no transactions sent)
 - Never commit your `.env` file — it contains your API key
+
+## Screenshots
+
+### Part 1 — Merkle Tree Tests
+(Add screenshot here)
+
+### Part 2 — Ethereum Block Fetch
+(Add screenshot here)
+
+### Part 3 — End-to-End Verification
+(Add screenshot here)
+
+### Docker Execution
+(Add screenshot here)
+
+## Final Result
+
+This project successfully demonstrates:
+
+- Merkle Tree construction
+- Merkle proof generation
+- Proof verification
+- Tampered proof rejection
+- Ethereum JSON-RPC integration
+- Transaction inclusion verification
+- Light client simulation
+- Dockerized execution
