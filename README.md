@@ -270,16 +270,27 @@ prove_transaction_inclusion(block, tx_index=0, method="simple")
 ## Screenshots
 
 ### Part 1 — Merkle Tree Tests
-(Add screenshot here)
+
+![Merkle Tests](screenshots/Merkle_Tree_Tests.png)
+
+---
 
 ### Part 2 — Ethereum Block Fetch
-(Add screenshot here)
+
+![Ethereum Block Fetch](screenshots/Etherum_Block_Fetch.png)
+
+---
 
 ### Part 3 — End-to-End Verification
-(Add screenshot here)
+
+![End-to-End Verification](screenshots/End-to-end_verification.png)
+
+---
 
 ### Docker Execution
-(Add screenshot here)
+
+![Docker Execution](screenshots/Docker_Execution.png)
+
 
 ## Final Result
 
