@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  merkle-verifier:
+    build: .
+    container_name: merkle-ethereum-verifier
+    env_file:
+      - .env
+    environment:
+      - ETH_RPC_URL=${ETH_RPC_URL}
+    volumes:
+      - .:/app
+    # Override CMD to run specific parts:
+    # docker-compose run merkle-verifier python part1_tree.py
+    # docker-compose run merkle-verifier python part2_fetch.py
+    # docker-compose run merkle-verifier python part3_verify.py
+    # docker-compose run merkle-verifier python main.py
+    command: python main.py
